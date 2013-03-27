@@ -40,11 +40,14 @@ When an exception is thrown you'll get notification about:
 ```
 
 The paramenters passed to Bugger.js are:
+
 Track event in Google Analytics: true or false (default is false)
+
 URL of your server side script that collects POST data from a hidden form. Please see the souce code for the field names.
 
 ## FAQ
 Will Bugger.js prevent JavaScript errors for occuring on my site?
-No way in hell. But you will get notified when it happens.
+
+No way! But you will get notified when it happens.
 
 
