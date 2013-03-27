@@ -22,6 +22,7 @@
 		Bugger.VERSION = '1.0';
 		Bugger.NUM_ERRORS = 0;
 		Bugger.SUPPRESS_ERRORS = false;
+		Bugger.LOG = false;
 
 		var pushToGA = pushToGA || false,
 			postURL = postURL || null,
@@ -45,6 +46,11 @@
 			Bugger.NUM_ERRORS++;
 
 			var e = getError(msg, url, linenumber);
+
+			if(Bugger.LOG){
+				console.log('Bugger.js caught a runtime exception!');
+			}
+
 			if(pushToGA) trackGA(e);
 			if(postURL) postToUrl(postURL, e);
 			return Bugger.SUPPRESS_ERRORS;
@@ -113,6 +119,10 @@
 					input.setAttribute('value', errorObj[key]);
 					form.appendChild(input);
 				}
+			}
+
+			if(Bugger.LOG){
+				console.log(form);
 			}
 
 			document.body.appendChild(form);

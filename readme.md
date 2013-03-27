@@ -6,7 +6,7 @@ Live JavaScript error reporting
 * Source    : https://github.com/ChristianDen/bugger.js
 
 ## Why?
-Because I want to know when users on live sites get JavaScript runtime errors that potentially breaks my site.
+Because I want to know when users on live sites experience JavaScript runtime errors that potentially breaks my site.
 
 The combination of platforms, devices and browsers is staggering. Most of the time it is not realistic to test for JavaScript errors on every single combination.
 Bugger.js does not replace testing, but at least you will know when your code breaks so you can fix it.
@@ -40,14 +40,5 @@ When an exception is thrown you'll get notification about:
 ```
 
 The paramenters passed to Bugger.js are:
-
 Track event in Google Analytics: true or false (default is false)
-
-URL of your server side script that collects POST data from a hidden form. Please see the souce code for the field names.
-
-## FAQ
-Will Bugger.js prevent JavaScript errors for occuring on my site?
-
-No way! But you will get notified when it happens.
-
-
+URL of your server side script that collects POST data from a hidden form. Please see the source code for the field names.
