@@ -6,22 +6,22 @@ Live JavaScript error reporting
 * Source    : https://github.com/ChristianDen/bugger.js
 
 ## Why?
-Because I want to know when users on live sites get JavaScript runtime errors that potentially breaks the site.
+Because I want to know when users on live sites get JavaScript runtime errors that potentially breaks my site.
 
 The combination of platforms, devices and browsers is staggering. Most of the time it is not realistic to test for JavaScript errors on every single combination.
 Bugger.js does not replace testing, but at least you will know when your code breaks so you can fix it.
 
 ## How?
-Bugger.js works by globally catching all JavaScript run time exceptions and sends detailed information about the error stright to you or logs it as a custom event in Google Analytics.
+Bugger.js works by globally catching all JavaScript run time exceptions and sends detailed information about the error straight to you or logs it as a custom event in Google Analytics.
 You can also specify a data collection URL where the POST data will be sent and potentially stored. This could be a Node.js, PHP or any other server side script.
 
 ## The Error object
 When an exception is thrown you'll get notification about:
 
-* The error (eg. Uncaught ReferenceError: boo is not defined)
+* The error (eg. 'Uncaught ReferenceError: boo is not defined')
 * Line number
-* URL of where the error occured
-* Browser vendor & version
+* URL / Script file
+* Browser vendor and version
 * OS
 * Device (if applicaple)
 * Time stamp
@@ -35,6 +35,16 @@ When an exception is thrown you'll get notification about:
 
 ```html
 <script>
-var bugger = new Bugger(true, 'http://localhost:8888/libs/Bugger.js/test/collect.php');
+    var bugger = new Bugger(true, 'http://localhost:8888/libs/Bugger.js/test/collect.php');
 </script>
 ```
+
+The paramenters passed to Bugger.js are:
+Track event in Google Analytics: true or false (default is false)
+URL of your server side script that collects POST data from a hidden form. Please see the souce code for the field names.
+
+## FAQ
+Will Bugger.js prevent JavaScript errors for occuring on my site?
+No way in hell. But you will get notified when it happens.
+
+
