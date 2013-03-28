@@ -82,3 +82,5 @@ Example of an error:
     });
 </script>
 ```
+
+Happy bug tracking!
