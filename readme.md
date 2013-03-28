@@ -24,7 +24,8 @@ When an exception is thrown a JSON object containing detailed information will b
 Example of an error:
 
 ```html
-{ "error": "Uncaught ReferenceError: FooBar is not defined",
+{
+  "error": "Uncaught ReferenceError: WTF is not defined",
   "line": 37,
   "url": "http://localhost:8888/libs/Bugger.js/test/",
   "userAgent": {
@@ -32,6 +33,10 @@ Example of an error:
       "name": "Chrome",
       "version": "26.0.1410.43",
       "major": "26"
+    },
+    "viewport": {
+      "width": 1238,
+      "height": 276
     },
     "engine": {
       "name": "WebKit",
@@ -42,10 +47,11 @@ Example of an error:
       "version": "10.6.8"
     },
     "device": {
+      
     }
   },
-  "timestamp": "2013-03-28T02:16:06.690Z",
-  "uuid": "db43aeee-7891-eebd-c551-523135acd9b6"
+  "timestamp": "Thu Mar 28 2013 16:20:16",
+  "uuid": "46c00d7f-a58e-7ce2-3b58-072c37eeffa5"
 }
 ```
 
