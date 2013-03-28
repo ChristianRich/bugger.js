@@ -18,7 +18,10 @@
 		Bugger.NUM_ERRORS = 0;
 		Bugger.SUPPRESS_ERRORS = false;
 
-		var o = options, uuid, iframe, self = this;
+		var o = options,
+			uid,
+			iframe,
+			self = this;
 
 		/**
 		 * Overriding native error handling
@@ -40,8 +43,12 @@
 				line : linenumber,
 				url : url,
 				userAgent : new UAParser().getResult(),
-				timestamp: new Date(),
-				uuid : uuid
+				viewport :{
+					width: getWidth(),
+					height: getHeight()
+				},
+				timestamp: dateFormat(),
+				uid : uid
 			});
 
 			if(o.useGA){
@@ -57,6 +64,26 @@
 			}
 
 			return Bugger.SUPPRESS_ERRORS;
+		};
+		
+		var getWidth = function(){
+			return Math.max(
+				document.documentElement['clientWidth'],
+				document.body['scrollWidth'],
+				document.documentElement['scrollWidth'],
+				document.body['offsetWidth'],
+				document.documentElement['offsetWidth']
+			);
+		};
+
+		var getHeight = function(){
+			return Math.max(
+				document.documentElement['clientHeight'],
+				document.body['scrollHeight'],
+				document.documentElement['scrollHeight'],
+				document.body['offsetHeight'],
+				document.documentElement['offsetHeight']
+			);
 		};
 
 		/**
@@ -120,11 +147,15 @@
 		 * @returns {string}
 		 */
 		var getGuid = function() {
-			function n() { return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);}
+
+			function n() {
+				return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+			}
+
 			return n() + n() + '-' + n() + '-' + n() + '-' + n() + '-' + n() + n() + n();
 		};
 
-		uuid = getGuid();
+		uid = getGuid();
 	};
 
 	window.Bugger = Bugger;
