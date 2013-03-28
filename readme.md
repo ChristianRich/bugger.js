@@ -6,8 +6,15 @@ Live JavaScript error reporting
 * Source    : https://github.com/ChristianDen/bugger.js
 
 ## Why?
-Because I want to know when users on live sites experience JavaScript runtime errors that potentially breaks the site.
+Because I want to know when users on live sites experience JavaScript runtime errors.
+This has been made before but I decided to make one that was:
 
+* 100% free to use
+* Open source
+* No dependencies
+* Straight forward to implement
+
+Similar libraries might come with more bells and whistles and Bugger.js is very basic but gets the job done.
 ## How?
 Bugger.js works by globally catching JavaScript exceptions and sends detailed information about the error. Data collection points would either be Google Analytics or a custom server side script via POST.
 
@@ -61,16 +68,17 @@ Example of an error:
 <script src="js/bugger.min.js"></script>
 
 <script>
+  /**
+  * Instantiating Bugger
+  * useGA: true for logging to Google Analytics (if the GA instance is not found this flag is ignored)
+  * postURL: URL where errors are posted
+  * onError: callback when exceptions are thrown
+  */
     var bugger = new Bugger({
-
-        // true for logging to Google Analytics (if the GA instance is not found this flag is ignored)
         useGA : true,
-
-        // URL where errors are posted
         postURL : 'http://localhost:8888/libs/Bugger.js/test/collect.php',
-
-        // Optional callback when errors are detected
         onError : function(error){
+          // Do whatever
         }
     });
 </script>
