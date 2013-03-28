@@ -53,12 +53,11 @@ Example of an error:
       "name": "Mac OS X",
       "version": "10.6.8"
     },
-    "device": {
-      
+    "device": { 
     }
   },
   "timestamp": "Thu Mar 28 2013 16:20:16",
-  "uuid": "46c00d7f-a58e-7ce2-3b58-072c37eeffa5"
+  "uid": "46c00d7f-a58e-7ce2-3b58-072c37eeffa5"
 }
 ```
 
