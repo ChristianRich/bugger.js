@@ -2,24 +2,40 @@
     <head>
         <meta charset="utf-8">
         <title>Bugger.js testing page</title>
-        <!--Ideally we would use the minified version, but for the purpose of demonstrating we are using the source code that contails console.log statements -->
-        <!--<script src="../dist/bugger.min.js"></script>-->
+        <script src="../dist/bugger.min.js"></script>
 
-        <script src="../libs/ua-parser.js"></script>
-        <script src="../src/Bugger.js"></script>
+        <!--<script src="../libs/ua-parser.js"></script>-->
+        <!--<script src="../src/Bugger.js"></script>-->
     </head>
     <body>
 
 	<script>
-        var bugger = new Bugger(true, 'http://localhost:8888/libs/Bugger.js/test/collect.php');
-        Bugger.LOG = true;
+
+        // Create a new Bugger instance
+        var bugger = new Bugger({
+
+            // true for logging to Google Analytics (if set up)
+            useGA : true,
+
+            // URL where errors are posted
+            postURL : 'http://localhost:8888/libs/Bugger.js/test/collect.php',
+
+            // Optional callback when errors are detected
+            onError : function(error){
+                var n = document.createElement('div');
+                n.innerHTML = 'A run time exception was caught:<br><br>' + error;
+                document.body.appendChild(n);
+            }
+        });
+
     </script>
 
     <h1>Bugger.js testing page</h1>
     <p>Open your console and press the button. An JavaScript exception is thrown an the error is passed on to Google Analytics and to collect.php</p>
     <p>This example will only run on a server</p>
 
-    <button onclick="boo();">Generate a runtime error!</button>
+    <button onclick="WTF();">Generate a runtime error!</button>
+    <br><br>
 
     <script>
         var _gaq=[['_setAccount','UA-00000000-0'],['_trackPageview'],['_setDomainName', 'www.mydomain.com']];
