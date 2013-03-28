@@ -61,7 +61,7 @@ Example of an error:
 }
 ```
 
-## Implementation
+## Sample implementation
 
 ```html
 <script src="js/bugger.min.js"></script>
